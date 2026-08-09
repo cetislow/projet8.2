@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en/fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue de produits</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- en-tête -->
+    <header class="entete">
+     <h1>Catalogue de produits</h1>
+        <!-- barres filtres  -->
+       <div class="barre-filtres">
+          <button class="filtre">Fruits</button>
+          <button class="filtre">Légumes</button>
+          <button class="filtre">Épicerie</button>
+         <input type="number" placeholder="Prix max" class="champ-prix">
+        </div>
+
+        <div class="synthese" id="synthese"></div>
+    </header>
+
+    <!-- contenue -->
+    <main>
+     <section id="sortie" class="grille-produits"></section>
+    </main>
+
+
+    <footer class="pied"> 
+        <p>Akieni Academy - Cohorte 2 - 2026</p>
+    </footer>
+
+
+
+    <script src="catalogue.js"></script>
+</body>
+</html>

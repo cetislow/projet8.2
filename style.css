@@ -1,0 +1,79 @@
+/* variables  */
+:root {
+ --vert:#10b981; --rouge:#ef4444; --violet:#7c3aed; --fond:#f9fafb; --rayon:12px;
+}
+
+/* reset  */
+* {
+ box-sizing: border-box; margin: 0; padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif; background: var(--fond); color: #1f2937; padding: 1rem; 
+}
+
+/* en-tête */
+.entete {
+  text-align: center; margin-bottom: 1.5rem; 
+}
+
+.barre-filtres {
+ display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin: 1rem 0; 
+}
+
+.filtre {
+  padding: .4rem 1rem; border: 1px solid var(--violet); color: var(--violet); background: white; border-radius: 999px; cursor: pointer; 
+}
+
+.champ-prix {
+ padding: .4rem .75rem; border: 1px solid #d1d5db; border-radius: 999px; width: 100px; outline: none; 
+}
+
+.synthese {
+  color: #6b7280; font-weight: 600;
+}
+
+.grille-produits {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; 
+}
+
+.carte-produit {
+  position: relative; background: white; border-radius: var(--rayon); padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); transition: .3s; cursor: pointer; 
+}
+
+.carte-produit:hover{ transform: translateY(-10px);}
+
+.aplat {
+   height: 100px; border-radius: 8px; margin-bottom: .75rem; background: linear-gradient(135deg, var(--vert), var(--violet)); 
+}
+
+.carte-produit h3 {
+  font-size: 1rem; margin-bottom: .25rem; 
+}
+
+.prix-barre {
+  text-decoration: line-through; color: #9ca3af; margin-right: .4rem; 
+}
+
+.prix-final {
+ color: var(--vert); font-weight: 700; 
+}
+
+.badge-carte {
+ position: absolute; top: .5rem; right: .5rem; font-size: .7rem; font-weight: 700; color: white; padding: .2rem .5rem; border-radius:
+999px; 
+}
+
+.rupture {
+  background: #6b7280; 
+}
+
+.reduction {
+ background: var(--rouge); 
+}
+
+.categorie {
+ color: #6b7280; font-size: .8rem; 
+}
+
+.pied p{ text-align: center; margin-top: 30px; }
