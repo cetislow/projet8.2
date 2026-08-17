@@ -1,79 +1,627 @@
-/* variables  */
-:root {
- --vert:#10b981; --rouge:#ef4444; --violet:#7c3aed; --fond:#f9fafb; --rayon:12px;
+
+/* ==========================================
+   1. RESET
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* reset  */
-* {
- box-sizing: border-box; margin: 0; padding: 0;
-}
+
+/* ==========================================
+   2. BODY
+   ========================================== */
 
 body {
-  font-family: system-ui, sans-serif; background: var(--fond); color: #1f2937; padding: 1rem; 
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+    min-height: 100vh;
 }
 
-/* en-tête */
-.entete {
-  text-align: center; margin-bottom: 1.5rem; 
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.barre-filtres {
- display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin: 1rem 0; 
+.header p {
+    color: #6b7280;
+    margin-top: 10px;
+}
+
+
+/* ==========================================
+   STATISTIQUES
+   ========================================== */
+
+.statistiques {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.statistique {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.stat-label {
+    display: block;
+
+    color: #6b7280;
+
+    margin-bottom: 8px;
+}
+
+.statistique strong {
+    font-size: 1.4rem;
+
+    color: #1d4ed8;
+}
+
+
+/* ==========================================
+   FILTRES
+   ========================================== */
+
+.filtres {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 25px;
 }
 
 .filtre {
-  padding: .4rem 1rem; border: 1px solid var(--violet); color: var(--violet); background: white; border-radius: 999px; cursor: pointer; 
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
 }
 
-.champ-prix {
- padding: .4rem .75rem; border: 1px solid #d1d5db; border-radius: 999px; width: 100px; outline: none; 
+.filtre label {
+    font-weight: bold;
+
+    font-size: 0.9rem;
 }
 
-.synthese {
-  color: #6b7280; font-weight: 600;
+.bouton-filtre {
+    justify-content: flex-end;
 }
 
-.grille-produits {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; 
+
+/* ==========================================
+   INFORMATION
+   ========================================== */
+
+.information {
+    margin-bottom: 20px;
+
+    color: #6b7280;
+
+    text-align: center;
 }
 
-.carte-produit {
-  position: relative; background: white; border-radius: var(--rayon); padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); transition: .3s; cursor: pointer; 
+
+
+
+
+/* ==========================================
+    CONTENEUR PRINCIPAL
+   ========================================== */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
 }
 
-.carte-produit:hover{ transform: translateY(-10px);}
 
-.aplat {
-   height: 100px; border-radius: 8px; margin-bottom: .75rem; background: linear-gradient(135deg, var(--vert), var(--violet)); 
+/* ==========================================
+    TITRE
+   ========================================== */
+
+h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 2.2rem;
+    color: #1e3a8a;
 }
 
-.carte-produit h3 {
-  font-size: 1rem; margin-bottom: .25rem; 
+
+/* ==========================================
+    CONTENEUR DES PRODUITS
+   ========================================== */
+
+#conteneur {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+
+    gap: 25px;
 }
 
-.prix-barre {
-  text-decoration: line-through; color: #9ca3af; margin-right: .4rem; 
+
+/* ==========================================
+    CARTE PRODUIT
+   ========================================== */
+
+.carte {
+    background: white;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    min-width: 0;
 }
 
-.prix-final {
- color: var(--vert); font-weight: 700; 
+
+/* ==========================================
+    EFFET AU SURVOL
+   ========================================== */
+
+.carte:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-.badge-carte {
- position: absolute; top: .5rem; right: .5rem; font-size: .7rem; font-weight: 700; color: white; padding: .2rem .5rem; border-radius:
-999px; 
+
+/* ==========================================
+    CONTENEUR IMAGE
+   ========================================== */
+
+.image-container {
+    position: relative;
+
+    width: 100%;
+    height: 220px;
+
+    overflow: hidden;
+
+    background: #e5e7eb;
 }
 
-.rupture {
-  background: #6b7280; 
+
+/* ==========================================
+    IMAGE PRODUIT
+   ========================================== */
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.4s ease;
 }
 
-.reduction {
- background: var(--rouge); 
+
+/* Zoom léger au survol */
+
+.carte:hover .image-container img {
+    transform: scale(1.05);
 }
+
+
+/* ==========================================
+    CONTENU DE LA CARTE
+   ========================================== */
+
+.contenu {
+    padding: 20px;
+}
+
+
+/* ==========================================
+    NOM DU PRODUIT
+   ========================================== */
+
+.contenu h2 {
+    font-size: 1.15rem;
+
+    margin-bottom: 10px;
+
+    color: #111827;
+}
+
+
+/* ==========================================
+    CATÉGORIE
+   ========================================== */
 
 .categorie {
- color: #6b7280; font-size: .8rem; 
+    display: inline-block;
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 0.8rem;
+
+    margin-bottom: 15px;
+
+    text-transform: capitalize;
 }
 
-.pied p{ text-align: center; margin-top: 30px; }
+
+/* ==========================================
+    PRIX
+   ========================================== */
+
+.prix {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-bottom: 12px;
+}
+
+
+/* Ancien prix */
+
+.ancien-prix {
+    color: #9ca3af;
+
+    text-decoration: line-through;
+
+    font-size: 0.9rem;
+}
+
+
+/* Nouveau prix */
+
+.nouveau-prix {
+    color: #1d4ed8;
+
+    font-size: 1.25rem;
+
+    font-weight: bold;
+}
+
+
+/* ==========================================
+    STOCK
+   ========================================== */
+
+.stock {
+    color: #4b5563;
+
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================
+  BADGES
+   ========================================== */
+
+.badge {
+    position: absolute;
+
+    z-index: 2;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+}
+
+
+/* Badge réduction */
+
+.badge.reduction {
+    top: 12px;
+
+    left: 12px;
+
+    background: #dc2626;
+
+    color: white;
+}
+
+
+/* Badge rupture */
+
+.badge.rupture {
+    top: 12px;
+
+    right: 12px;
+
+    background: #111827;
+
+    color: white;
+}
+
+
+/* ==========================================
+    MESSAGE AUCUN PRODUIT
+   ========================================== */
+
+.aucun-produit {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 50px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    color: #6b7280;
+
+    font-size: 1.1rem;
+}
+
+
+/* ==========================================
+    BOUTONS
+   ========================================== */
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 0.95rem;
+
+    transition:
+        background 0.3s ease,
+        transform 0.2s ease;
+}
+
+
+button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+    ZONE DES FILTRES
+   ========================================== */
+
+.filtres {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    justify-content: center;
+}
+
+
+/* ==========================================
+    INPUT
+   ========================================== */
+
+input,
+select {
+    padding: 11px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #1f2937;
+
+    outline: none;
+
+    font-size: 0.95rem;
+}
+
+
+input:focus,
+select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+
+/* ==========================================
+    TABLETTE
+   ========================================== */
+
+@media (min-width: 768px) {
+
+    main {
+        width: 85%;
+    }
+
+
+    #conteneur {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(220px, 1fr)
+            );
+    }
+
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .filtres {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 15px;
+    }
+}
+
+
+/* ==========================================
+    DESKTOP
+   ========================================== */
+
+@media (min-width: 1024px) {
+
+    main {
+        max-width: 1200px;
+    }
+
+
+    #conteneur {
+        grid-template-columns:
+            repeat(
+                4,
+                minmax(220px, 1fr)
+            );
+    }
+
+
+    .image-container {
+        height: 230px;
+    }
+
+     .filtres {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* ==========================================
+    PETITS ÉCRANS
+   ========================================== */
+
+@media (max-width: 480px) {
+
+    main {
+        width: 94%;
+
+        margin-top: 25px;
+    }
+
+
+    h1 {
+        font-size: 1.8rem;
+
+        margin-bottom: 25px;
+    }
+
+
+    #conteneur {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .image-container {
+        height: 210px;
+    }
+
+
+    .contenu {
+        padding: 17px;
+    }
+
+
+    .filtres {
+        flex-direction: column;
+    }
+
+
+    input,
+    select,
+    button {
+        width: 100%;
+    }
+
+    .statistiques {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+    text-align: center;
+
+    padding: 30px 15px;
+
+    margin-top: 50px;
+
+    background: #1e3a8a;
+
+    color: white;
+}
+
+footer p {
+    margin: 5px 0;
+}

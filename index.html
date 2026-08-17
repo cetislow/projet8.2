@@ -1,39 +1,268 @@
 <!DOCTYPE html>
-<html lang="en/fr">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogue de produits</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
 
-    <!-- en-tête -->
-    <header class="entete">
-     <h1>Catalogue de produits</h1>
-        <!-- barres filtres  -->
-       <div class="barre-filtres">
-          <button class="filtre">Fruits</button>
-          <button class="filtre">Légumes</button>
-          <button class="filtre">Épicerie</button>
-         <input type="number" placeholder="Prix max" class="champ-prix">
-        </div>
+    <!-- ======================================
+         CONTENU PRINCIPAL
+         ====================================== -->
 
-        <div class="synthese" id="synthese"></div>
-    </header>
-
-    <!-- contenue -->
     <main>
-     <section id="sortie" class="grille-produits"></section>
+
+        <!-- ==================================
+             TITRE
+             ================================== -->
+
+        <header class="header">
+
+            <h1>
+                 Catalogue de produits
+            </h1>
+
+            <p>
+                Découvrez nos produits et utilisez les filtres
+                pour trouver ce que vous recherchez.
+            </p>
+
+        </header>
+
+
+        <!-- ==================================
+             STATISTIQUES
+             ================================== -->
+
+        <section class="statistiques">
+
+            <div class="statistique">
+
+                <span class="stat-label">
+                    Produits
+                </span>
+
+                <strong id="nombre-produits">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="statistique">
+
+                <span class="stat-label">
+                    Valeur du stock
+                </span>
+
+                <strong id="valeur-stock">
+                    0 FCFA
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             FILTRES
+             ================================== -->
+
+        <section
+            class="filtres"
+            aria-label="Filtres du catalogue"
+        >
+
+            <!-- Recherche -->
+
+            <div class="filtre">
+
+                <label for="recherche">
+                    Rechercher
+                </label>
+
+                <input
+                    type="search"
+                    id="recherche"
+                    placeholder="Rechercher un produit..."
+                >
+
+            </div>
+
+
+            <!-- Catégorie -->
+
+            <div class="filtre">
+
+                <label for="categorie">
+                    Catégorie
+                </label>
+
+                <select id="categorie">
+
+                    <option value="toutes">
+                        Toutes les catégories
+                    </option>
+
+                    <option value="informatique">
+                        Informatique
+                    </option>
+
+                    <option value="telephone">
+                        Téléphone
+                    </option>
+
+                    <option value="audio">
+                        Audio
+                    </option>
+
+                    <option value="accessoires">
+                        Accessoires
+                    </option>
+
+                    <option value="photo">
+                        Photo
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Prix maximum -->
+
+            <div class="filtre">
+
+                <label for="prix-max">
+                    Prix maximum
+                </label>
+
+                <input
+                    type="number"
+                    id="prix-max"
+                    placeholder="Ex : 100000"
+                    min="0"
+                >
+
+            </div>
+
+
+            <!-- Tri -->
+
+            <div class="filtre">
+
+                <label for="tri">
+                    Trier par
+                </label>
+
+                <select id="tri">
+
+                    <option value="defaut">
+                        Par défaut
+                    </option>
+
+                    <option value="croissant">
+                        Prix croissant
+                    </option>
+
+                    <option value="decroissant">
+                        Prix décroissant
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Bouton réduction -->
+
+            <div class="filtre bouton-filtre">
+
+                <button
+                    id="btn-reduction"
+                    type="button"
+                >
+                    Appliquer -10 %
+                </button>
+
+            </div>
+
+
+            <!-- Réinitialisation -->
+
+            <div class="filtre bouton-filtre">
+
+                <button
+                    id="btn-reset"
+                    type="button"
+                >
+                    Réinitialiser
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             INFORMATIONS DU CATALOGUE
+             ================================== -->
+
+        <section class="information">
+
+            <p id="resultat-info">
+                Affichage de tous les produits
+            </p>
+
+        </section>
+
+
+        <!-- ==================================
+             CONTENEUR DES PRODUITS
+             ================================== -->
+
+        <section
+            id="conteneur"
+            aria-label="Liste des produits"
+        >
+
+            <!-- Les cartes sont générées
+                 automatiquement par JavaScript -->
+
+        </section>
+
+
     </main>
 
 
-    <footer class="pied"> 
-        <p>Akieni Academy - Cohorte 2 - 2026</p>
+    <!-- ======================================
+         FOOTER
+         ====================================== -->
+
+    <footer>
+
+        <p>
+            Projet 8.2 — Catalogue de produits
+        </p>
+
+        <p>
+            Akieni Academy — JavaScript Phase 2
+        </p>
+
     </footer>
 
 
+    <!-- ======================================
+         JAVASCRIPT
+         ====================================== -->
 
     <script src="catalogue.js"></script>
+
 </body>
+
 </html>
